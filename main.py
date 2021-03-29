@@ -1,10 +1,6 @@
 # includes
 from tkinter import *
 
-# funcies
-def btwbereken(prijs, btw):
-    pass
-
 
 # scherm maken
 class scherm():
@@ -31,6 +27,10 @@ class scherm():
 
         self.root.config(menu=menubar)
         self.root.mainloop()
+
+    def btwbereken(self, prijs, btw):
+        print(prijs, btw)
+
 
     def oppervlakte(self):
         try:
@@ -74,7 +74,7 @@ class scherm():
         btwL = Label(self.btw_frame, text="BTW tarief:", font=("Courier", 12))
         btwE = Entry(self.btw_frame)
 
-        berekenbtn = Button(self.btw_frame, text="Berkenen")
+        berekenbtn = Button(self.btw_frame, text="Berkenen", command=lambda: self.btwbereken(prijsE.get(), btwE.get()))
 
         label_1.pack()
         prijsL.pack()
