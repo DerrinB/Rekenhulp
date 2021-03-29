@@ -1,13 +1,17 @@
 # includes
 from tkinter import *
 
+# funcies
+def btwbereken(prijs, btw):
+    pass
+
 
 # scherm maken
 class scherm():
     def __init__(self):
         self.root = Tk()
         self.root.title("Rekenhulp")
-        self.root.geometry("600x200+100+100")
+        self.root.geometry("600x300+100+100")
 
         # Menu maken
         menubar = Menu(self.root)
@@ -64,17 +68,20 @@ class scherm():
         self.btw_frame = Frame(borderwidth=10)
 
         label_1 = Label(self.btw_frame, text="BTW Berekenen", font=("Courier", 20))
-        prijsL = Label(self.btw_frame, text="Prijs:", font=("Courier", 12))
+        prijsL = Label(self.btw_frame, text="Prijs ex. BTW:", font=("Courier", 12))
         prijsE = Entry(self.btw_frame)
 
         btwL = Label(self.btw_frame, text="BTW tarief:", font=("Courier", 12))
         btwE = Entry(self.btw_frame)
+
+        berekenbtn = Button(self.btw_frame, text="Berkenen")
 
         label_1.pack()
         prijsL.pack()
         prijsE.pack()
         btwL.pack()
         btwE.pack()
+        berekenbtn.pack()
 
         self.btw_frame.pack()
 
