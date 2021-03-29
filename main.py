@@ -62,8 +62,13 @@ class scherm():
             pass
         
         self.btw_frame = Frame(borderwidth=10)
-        label_1 = Label(self.btw_frame, text="btw", bg="red", fg="white")
+
+        label_1 = Label(self.btw_frame, text="BTW Berekenen", font=("Courier", 15))
+        prijsE = Entry(self.btw_frame)
+        
         label_1.pack()
+        prijsE.pack()
+
         self.btw_frame.pack()
 
     def cirkel(self):
@@ -95,7 +100,4 @@ class scherm():
 
         def test(sef):
             pass
-
-#frame1 = tk.Frame(root, width=100, height=100, background="bisque")
-
 scherm = scherm()
