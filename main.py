@@ -27,6 +27,14 @@ class scherm():
         self.root.config(menu=menubar)
         self.root.mainloop()
 
+    def berekenOppervlakte(self, lengte, breedte, label):
+        try:
+            oppervlakte=int(lengte) * int(breedte)
+        except:
+            label.config(text="Vul geldige waardes in")
+        #print(str(oppervlakte))
+        label.config(text="Oppervlakte: " + str(oppervlakte))
+
     def btwbereken(self, prijs, btw):
         try:
             prijs = float(prijs)
@@ -53,9 +61,21 @@ class scherm():
             pass
             
         self.ov_frame = Frame(borderwidth=10)
-        label_1 = Label(self.ov_frame, text="oppervlakte", bg="red", fg="white")
+        label_1 = Label(self.ov_frame, text="Lengte")
+        lengte_entry = Entry(self.ov_frame)
+        breedte_entry = Entry(self.ov_frame)
+        btn = Button(self.ov_frame, text="Volgende", command=lambda: self.berekenOppervlakte(lengte_entry.get(), breedte_entry.get(), output_label))
+        #btn['command'] = berekenOppervlakte(lengte_entry.get(), breedte_entry.get())
+        output_label = Label(self.ov_frame, text="")
+
         label_1.pack()
+        lengte_entry.pack()
+        breedte_entry.pack()
+        btn.pack()
+        output_label.pack()
+        
         self.ov_frame.pack()
+
 
     def btwbrekenen(self):
         try:
