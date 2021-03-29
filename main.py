@@ -1,8 +1,5 @@
 from tkinter import *
 
-def donothing():
-    pass
-
 class scherm():
     def __init__(self):
         self.root = Tk()
