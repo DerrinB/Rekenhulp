@@ -2,8 +2,10 @@
 from tkinter import *
 
 def berekenOppervlakte(lengte, breedte):
-    oppervlakte=int(lengte.get()) * int(breedte.get())
+    oppervlakte=int(lengte) * int(breedte)
     print(str(oppervlakte))
+    #print(str(lengte))
+
 # scherm maken
 class scherm():
     def __init__(self):
@@ -48,8 +50,8 @@ class scherm():
         label_1 = Label(self.ov_frame, text="Lengte", bg="red", fg="white")
         lengte_entry = Entry(self.ov_frame)
         breedte_entry = Entry(self.ov_frame)
-        btn = Button(self.ov_frame, text="Volgende")
-        btn['command'] = berekenOppervlakte(lengte_entry, breedte_entry)
+        btn = Button(self.ov_frame, text="Volgende", command=lambda: berekenOppervlakte(lengte_entry.get(), breedte_entry.get()))
+        #btn['command'] = berekenOppervlakte(lengte_entry.get(), breedte_entry.get())
 
         label_1.pack()
         lengte_entry.pack()
