@@ -41,8 +41,16 @@ class scherm():
             
         self.ov_frame = Frame(borderwidth=10)
         label_1 = Label(self.ov_frame, text="oppervlakte", bg="red", fg="white")
+        name_entry = Entry(self.ov_frame)
+        btn = tk.Button(
+    text="Volgende",
+    command=donothing,)
+btn.pack()
+
+        name_entry.pack()
         label_1.pack()
         self.ov_frame.pack()
+
 
     def btwbrekenen(self):
         try:
@@ -89,9 +97,6 @@ class scherm():
         label_1.pack()
         label_2.pack()
         self.home_frame.pack()
-
-        def test(sef):
-            pass
 
 #frame1 = tk.Frame(root, width=100, height=100, background="bisque")
 
