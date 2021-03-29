@@ -1,17 +1,17 @@
 # includes
 from tkinter import *
 
-def berekenOppervlakte(lengte, breedte):
+def berekenOppervlakte(lengte, breedte, label):
     oppervlakte=int(lengte) * int(breedte)
-    print(str(oppervlakte))
-    #print(str(lengte))
+    #print(str(oppervlakte))
+    label.config(text="Oppervlakte: " + str(oppervlakte))
 
 # scherm maken
 class scherm():
     def __init__(self):
         self.root = Tk()
         self.root.title("Rekenhulp")
-        self.root.geometry("600x200+100+100")
+        self.root.geometry("600x300+100+100")
 
         # Menu maken
         menubar = Menu(self.root)
@@ -47,16 +47,18 @@ class scherm():
             pass
             
         self.ov_frame = Frame(borderwidth=10)
-        label_1 = Label(self.ov_frame, text="Lengte", bg="red", fg="white")
+        label_1 = Label(self.ov_frame, text="Lengte")
         lengte_entry = Entry(self.ov_frame)
         breedte_entry = Entry(self.ov_frame)
-        btn = Button(self.ov_frame, text="Volgende", command=lambda: berekenOppervlakte(lengte_entry.get(), breedte_entry.get()))
+        btn = Button(self.ov_frame, text="Volgende", command=lambda: berekenOppervlakte(lengte_entry.get(), breedte_entry.get(), output_label))
         #btn['command'] = berekenOppervlakte(lengte_entry.get(), breedte_entry.get())
+        output_label = Label(self.ov_frame, text="")
 
         label_1.pack()
         lengte_entry.pack()
         breedte_entry.pack()
         btn.pack()
+        output_label.pack()
         
         self.ov_frame.pack()
 
@@ -76,8 +78,23 @@ class scherm():
             pass
         
         self.btw_frame = Frame(borderwidth=10)
-        label_1 = Label(self.btw_frame, text="btw", bg="red", fg="white")
+
+        label_1 = Label(self.btw_frame, text="BTW Berekenen", font=("Courier", 20))
+        prijsL = Label(self.btw_frame, text="Prijs ex. BTW:", font=("Courier", 12))
+        prijsE = Entry(self.btw_frame)
+
+        btwL = Label(self.btw_frame, text="BTW tarief:", font=("Courier", 12))
+        btwE = Entry(self.btw_frame)
+
+        berekenbtn = Button(self.btw_frame, text="Berkenen")
+
         label_1.pack()
+        prijsL.pack()
+        prijsE.pack()
+        btwL.pack()
+        btwE.pack()
+        berekenbtn.pack()
+
         self.btw_frame.pack()
 
     def cirkel(self):
@@ -107,6 +124,6 @@ class scherm():
         label_2.pack()
         self.home_frame.pack()
 
-#frame1 = tk.Frame(root, width=100, height=100, background="bisque")
-
+        def test(sef):
+            pass
 scherm = scherm()
