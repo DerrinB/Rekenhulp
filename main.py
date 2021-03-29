@@ -42,10 +42,8 @@ class scherm():
         self.ov_frame = Frame(borderwidth=10)
         label_1 = Label(self.ov_frame, text="oppervlakte", bg="red", fg="white")
         name_entry = Entry(self.ov_frame)
-        btn = tk.Button(
-    text="Volgende",
-    command=donothing,)
-btn.pack()
+        btn = tk.Button(text="Volgende")
+        btn.pack()
 
         name_entry.pack()
         label_1.pack()
