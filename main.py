@@ -32,6 +32,17 @@ class scherm():
         self.root.config(menu=menubar)
         self.root.mainloop()
 
+    def btwbereken(self, prijs, btw):
+        try:
+            prijs = float(prijs)
+            btw = int(btw)
+            btw += 100
+            totaal = round((prijs / 100 * btw), 2)
+            self.totaalL['text'] = totaal
+        except:
+            self.totaalL['text'] = 'vul geldige waarden in'
+
+
     def oppervlakte(self):
         try:
             self.btw_frame.pack_forget()
@@ -86,7 +97,9 @@ class scherm():
         btwL = Label(self.btw_frame, text="BTW tarief:", font=("Courier", 12))
         btwE = Entry(self.btw_frame)
 
-        berekenbtn = Button(self.btw_frame, text="Berkenen")
+        berekenbtn = Button(self.btw_frame, text="Berkenen", command=lambda: self.btwbereken(prijsE.get(), btwE.get()))
+
+        self.totaalL = Label(self.btw_frame, text="", font=("Courier", 12))
 
         label_1.pack()
         prijsL.pack()
@@ -94,6 +107,7 @@ class scherm():
         btwL.pack()
         btwE.pack()
         berekenbtn.pack()
+        self.totaalL.pack()
 
         self.btw_frame.pack()
 
