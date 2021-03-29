@@ -1,7 +1,6 @@
 # includes
 from tkinter import *
 
-
 # scherm maken
 class scherm():
     def __init__(self):
