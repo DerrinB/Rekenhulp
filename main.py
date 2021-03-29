@@ -93,6 +93,9 @@ class scherm():
         label_2.pack()
         self.home_frame.pack()
 
+        def test(sef):
+            pass
+
 #frame1 = tk.Frame(root, width=100, height=100, background="bisque")
 
 scherm = scherm()
