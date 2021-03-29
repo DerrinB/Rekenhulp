@@ -38,12 +38,15 @@ class scherm():
     def btwbereken(self, prijs, btw):
         try:
             prijs = float(prijs)
-            btw = int(btw)
-            btw += 100
-            totaal = round((prijs / 100 * btw), 2)
-            self.totaalL['text'] = totaal
+            try:
+                btw = int(btw)
+                btw += 100
+                totaal = round((prijs / 100 * btw), 2)
+                self.totaalL['text'] = totaal
+            except:
+                self.totaalL['text'] = 'vul een geldig btw tarief in'
         except:
-            self.totaalL['text'] = 'vul geldige waarden in'
+            self.totaalL['text'] = 'vul een geldige prijs in'
 
 
     def oppervlakte(self):
