@@ -1,7 +1,9 @@
 # includes
 from tkinter import *
 
-
+def berekenOppervlakte(lengte, breedte):
+    oppervlakte=int(lengte.get()) * int(breedte.get())
+    print(str(oppervlakte))
 # scherm maken
 class scherm():
     def __init__(self):
@@ -43,12 +45,15 @@ class scherm():
             pass
             
         self.ov_frame = Frame(borderwidth=10)
-        label_1 = Label(self.ov_frame, text="oppervlakte", bg="red", fg="white")
-        name_entry = Entry(self.ov_frame)
+        label_1 = Label(self.ov_frame, text="Lengte", bg="red", fg="white")
+        lengte_entry = Entry(self.ov_frame)
+        breedte_entry = Entry(self.ov_frame)
         btn = Button(self.ov_frame, text="Volgende")
+        btn['command'] = berekenOppervlakte(lengte_entry, breedte_entry)
 
         label_1.pack()
-        name_entry.pack()
+        lengte_entry.pack()
+        breedte_entry.pack()
         btn.pack()
         
         self.ov_frame.pack()
