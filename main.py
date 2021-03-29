@@ -1,11 +1,6 @@
 # includes
 from tkinter import *
 
-def berekenOppervlakte(lengte, breedte, label):
-    oppervlakte=int(lengte) * int(breedte)
-    #print(str(oppervlakte))
-    label.config(text="Oppervlakte: " + str(oppervlakte))
-
 # scherm maken
 class scherm():
     def __init__(self):
@@ -31,6 +26,14 @@ class scherm():
 
         self.root.config(menu=menubar)
         self.root.mainloop()
+
+    def berekenOppervlakte(self, lengte, breedte, label):
+        try:
+            oppervlakte=int(lengte) * int(breedte)
+        except:
+            label.config(text="Vul geldige waardes in")
+        #print(str(oppervlakte))
+        label.config(text="Oppervlakte: " + str(oppervlakte))
 
     def btwbereken(self, prijs, btw):
         try:
@@ -61,7 +64,7 @@ class scherm():
         label_1 = Label(self.ov_frame, text="Lengte")
         lengte_entry = Entry(self.ov_frame)
         breedte_entry = Entry(self.ov_frame)
-        btn = Button(self.ov_frame, text="Volgende", command=lambda: berekenOppervlakte(lengte_entry.get(), breedte_entry.get(), output_label))
+        btn = Button(self.ov_frame, text="Volgende", command=lambda: self.berekenOppervlakte(lengte_entry.get(), breedte_entry.get(), output_label))
         #btn['command'] = berekenOppervlakte(lengte_entry.get(), breedte_entry.get())
         output_label = Label(self.ov_frame, text="")
 
