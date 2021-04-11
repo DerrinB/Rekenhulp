@@ -1,25 +1,27 @@
-# includes
+#################################################
+########## Door: Derrin, Nathan #################
+# includes, Nathan
 from tkinter import *
 
-# scherm maken
+# scherm maken, Nathan
 class scherm():
     def __init__(self):
         self.root = Tk()
         self.root.title("Rekenhulp")
         self.root.geometry("600x300+100+100")
 
-        # Menu maken
+        # Menu maken, Nathan, Derrin
         menubar = Menu(self.root)
         self.root.config(menu=menubar)
 
-        # Menu items maken
+        # Menu items maken, Nathan, Derrin
         mainmenu = Menu(menubar)
         mainmenu.add_command(label="Oppervlakte berekenen", command=self.oppervlakte)
         mainmenu.add_command(label="BTW Berekenen", command=self.btwbrekenen)
-        mainmenu.add_command(label="Omtrek & diameter cirkel berekenen", command=self.cirkel)
+
         mainmenu.add_separator()
         mainmenu.add_command(label="Exit", command=self.root.quit)
-        # Menu toevoegen aan menubar
+        # Menu toevoegen aan menubar, Nathan, Derrin
         menubar.add_cascade(label="Menu", menu=mainmenu)
 
         self.hoofdmenu()
@@ -27,6 +29,7 @@ class scherm():
         self.root.config(menu=menubar)
         self.root.mainloop()
 
+        #Opervlakte berekenen, Derrin
     def berekenOppervlakte(self, lengte, breedte, label):
         try:
             oppervlakte=int(lengte) * int(breedte)
@@ -35,6 +38,7 @@ class scherm():
         #print(str(oppervlakte))
         label.config(text="Oppervlakte: " + str(oppervlakte))
 
+        #BTW berekenen, Nathan
     def btwbereken(self, prijs, btw):
         try:
             prijs = float(prijs)
@@ -48,7 +52,7 @@ class scherm():
         except:
             self.totaalL['text'] = 'vul een geldige prijs in'
 
-
+    #opervlakte scherm, Derrin
     def oppervlakte(self):
         try:
             self.btw_frame.pack_forget()
@@ -79,7 +83,7 @@ class scherm():
         
         self.ov_frame.pack()
 
-
+    #btw scherm, Nathan
     def btwbrekenen(self):
         try:
             self.cirkel_frame.pack_forget()
@@ -117,25 +121,7 @@ class scherm():
 
         self.btw_frame.pack()
 
-    def cirkel(self):
-        try:
-            self.ov_frame.pack_forget()
-        except:
-            pass
-        try:
-            self.home_frame.pack_forget()
-        except:
-            pass
-        try:
-            self.btw_frame.pack_forget()
-        except:
-            pass
-        
-        self.cirkel_frame = Frame(borderwidth=10)
-        label_1 = Label(self.cirkel_frame, text="Cirkel", bg="red", fg="white")
-        label_1.pack()
-        self.cirkel_frame.pack()
-
+        #hoofdmenu, Nathan
     def hoofdmenu(self):
         self.home_frame = Frame(borderwidth=10)
         label_1 = Label(self.home_frame, text="Welkom bij onze applicatie", font=("Courier", 25))
@@ -144,6 +130,5 @@ class scherm():
         label_2.pack()
         self.home_frame.pack()
 
-        def test(sef):
-            pass
+#scherm aanroepen, Nathan
 scherm = scherm()
