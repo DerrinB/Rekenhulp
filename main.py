@@ -1,5 +1,5 @@
 #################################################
-########## Door: Derrin, Nathan en Sven #########
+########## Door: Derrin, Nathan #################
 # includes, Nathan
 from tkinter import *
 
@@ -18,7 +18,7 @@ class scherm():
         mainmenu = Menu(menubar)
         mainmenu.add_command(label="Oppervlakte berekenen", command=self.oppervlakte)
         mainmenu.add_command(label="BTW Berekenen", command=self.btwbrekenen)
-        mainmenu.add_command(label="Omtrek & diameter cirkel berekenen", command=self.cirkel)
+
         mainmenu.add_separator()
         mainmenu.add_command(label="Exit", command=self.root.quit)
         # Menu toevoegen aan menubar, Nathan, Derrin
@@ -117,26 +117,6 @@ class scherm():
         self.totaalL.pack()
 
         self.btw_frame.pack()
-
-        #default, Derrin
-    def cirkel(self):
-        try:
-            self.ov_frame.pack_forget()
-        except:
-            pass
-        try:
-            self.home_frame.pack_forget()
-        except:
-            pass
-        try:
-            self.btw_frame.pack_forget()
-        except:
-            pass
-        
-        self.cirkel_frame = Frame(borderwidth=10)
-        label_1 = Label(self.cirkel_frame, text="Cirkel", bg="red", fg="white")
-        label_1.pack()
-        self.cirkel_frame.pack()
 
         #hoofdmenu, Nathan
     def hoofdmenu(self):
