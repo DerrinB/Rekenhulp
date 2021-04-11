@@ -62,10 +62,6 @@ class scherm():
             self.home_frame.pack_forget()
         except:
             pass
-        try:
-            self.cirkel_frame.pack_forget()
-        except:
-            pass
             
         self.ov_frame = Frame(borderwidth=10)
         label_1 = Label(self.ov_frame, text="Lengte")
@@ -85,10 +81,6 @@ class scherm():
 
     #btw scherm, Nathan
     def btwbrekenen(self):
-        try:
-            self.cirkel_frame.pack_forget()
-        except:
-            pass
         try:
             self.home_frame.pack_forget()
         except:
