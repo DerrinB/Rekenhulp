@@ -51,6 +51,7 @@ class scherm():
                 self.totaalL['text'] = 'vul een geldig btw tarief in'
         except:
             self.totaalL['text'] = 'vul een geldige prijs in'
+ 
 
     #opervlakte scherm, Derrin
     def oppervlakte(self):
